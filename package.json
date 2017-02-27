@@ -1,0 +1,37 @@
+{
+  "name": "power-range",
+  "version": "1.0.0",
+  "description": "Create ranges of almost anything: numbers, letters, dates and even words! Yay!",
+  "license": "MIT",
+  "repository": "alcidesqueiroz/power-range",
+  "author": {
+    "name": "Alcides Queiroz",
+    "email": "alcidesqueiroz@gmail.com",
+    "url": "alcidesqueiroz.github.com"
+  },
+  "engines": {
+    "node": ">=4.8.0"
+  },
+  "scripts": {
+    "test": "eslint index.js && tap test.js"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "range",
+    "interval",
+    "period",
+    "number",
+    "date",
+    "hour",
+    "letter",
+    "word"
+  ],
+  "devDependencies": {
+    "tap": "^10.2.1"
+  },
+  "dependencies": {
+    "type-detect": "^4.0.0"
+  }
+}

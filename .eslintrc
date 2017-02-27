@@ -1,0 +1,15 @@
+{
+  "extends": "airbnb",
+  "parserOptions": {
+    "sourceType": "script"
+  },
+  "rules": {
+    "strict": ["error", "global"],
+    "comma-dangle": ["error", "never"],
+    "consistent-return": "off",
+    "no-continue": "off",
+    "no-mixed-operators": "off",
+    "no-multiple-empty-lines": "off",
+    "no-plusplus": "off"
+  }
+}
