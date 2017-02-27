@@ -171,9 +171,13 @@ function dateAdd(date, increment, unit) {
     minute: 60000,
     hour: 3600000,
     day: 86400000,
-    week: 604800000,
-    year: 31536000000
+    week: 604800000
   }[unit];
+
+  if(!factor){
+    throw new Error('Invalid unit. Accepted values: "second", "minute", "hour", "day", "week", "month"');
+  }
+
   const value = date.valueOf() + (factor * increment);
 
   return new Date(value);
@@ -202,6 +206,9 @@ module.exports = {
 
     if (rangeType === 'string') {
       opts.chars = opts.chars || getPossibleChars(from, to, opts);
+    } else if (opts.increment !== undefined
+      && (!isFinite(opts.increment) || opts.increment <= 0)) {
+      throw new Error('The increment value must be a number greater than zero.');
     }
 
     validateLimits(from, to, opts);

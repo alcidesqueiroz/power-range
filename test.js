@@ -122,34 +122,23 @@ tap.deepEqual(pr.create(new Date(2001, 11, 5, 4, 5, 6), new Date(2002, 0, 23, 4,
     new Date(2002, 0, 23, 4, 5, 6)
   ]);
 
-tap.deepEqual(pr.create(new Date(2001, 2, 3, 4, 5, 6), new Date(2002, 3, 3, 4, 5, 6), { unit: 'month' }),
+tap.deepEqual(pr.create(new Date(2003, 2, 3, 4, 5, 6), new Date(2004, 3, 3, 4, 5, 6), { unit: 'month' }),
   [
-    new Date(2001, 2, 3, 4, 5, 6),
-    new Date(2001, 3, 3, 4, 5, 6),
-    new Date(2001, 4, 3, 4, 5, 6),
-    new Date(2001, 5, 3, 4, 5, 6),
-    new Date(2001, 6, 3, 4, 5, 6),
-    new Date(2001, 7, 3, 4, 5, 6),
-    new Date(2001, 8, 3, 4, 5, 6),
-    new Date(2001, 9, 3, 4, 5, 6),
-    new Date(2001, 10, 3, 4, 5, 6),
-    new Date(2001, 11, 3, 4, 5, 6),
-    new Date(2002, 0, 3, 4, 5, 6),
-    new Date(2002, 1, 3, 4, 5, 6),
-    new Date(2002, 2, 3, 4, 5, 6),
-    new Date(2002, 3, 3, 4, 5, 6)
+    new Date(2003, 2, 3, 4, 5, 6),
+    new Date(2003, 3, 3, 4, 5, 6),
+    new Date(2003, 4, 3, 4, 5, 6),
+    new Date(2003, 5, 3, 4, 5, 6),
+    new Date(2003, 6, 3, 4, 5, 6),
+    new Date(2003, 7, 3, 4, 5, 6),
+    new Date(2003, 8, 3, 4, 5, 6),
+    new Date(2003, 9, 3, 4, 5, 6),
+    new Date(2003, 10, 3, 4, 5, 6),
+    new Date(2003, 11, 3, 4, 5, 6),
+    new Date(2004, 0, 3, 4, 5, 6),
+    new Date(2004, 1, 3, 4, 5, 6),
+    new Date(2004, 2, 3, 4, 5, 6),
+    new Date(2004, 3, 3, 4, 5, 6)
   ]);
-
-// tap.deepEqual(pr.create(new Date(2001, 11, 3, 4, 5, 6), new Date(2007, 11, 3, 4, 5, 7), { unit: 'year' }),
-//   [
-//     new Date(2001, 11, 3, 4, 5, 6),
-//     new Date(2002, 11, 3, 4, 5, 6),
-//     new Date(2003, 11, 3, 4, 5, 6),
-//     new Date(2004, 11, 3, 4, 5, 6),
-//     new Date(2005, 11, 3, 4, 5, 6),
-//     new Date(2006, 11, 3, 4, 5, 6),
-//     new Date(2007, 11, 3, 4, 5, 6)
-//   ]);
 
 tap.deepEqual(pr.create(new Date(2001, 2, 27, 4, 5, 6), new Date(2001, 3, 5, 6, 7, 8), { unit: 'day', increment: 2 }),
   [
@@ -185,7 +174,7 @@ tap.deepEqual(pr.create(new Date(2001, 2, 27, 4, 5, 6), new Date(2001, 3, 5, 6, 
  * Errors
  */
 
-//Accepted types checking
+// Accepted types checking
 tap.throws(() => pr.create(true, 2),
   new Error('A range limit value must be a number, date or string.'));
 tap.throws(() => pr.create({}, new Date(2001, 3, 3)),
@@ -197,7 +186,7 @@ tap.throws(() => pr.create(null, 3),
 tap.throws(() => pr.create(1, undefined),
   new Error('A range limit value must be a number, date or string.'));
 
- //Invalid limit values
+ // Invalid limit values
 tap.throws(() => pr.create(1, Infinity),
   new Error('Invalid limit values.'));
 tap.throws(() => pr.create(NaN, 3),
@@ -207,20 +196,36 @@ tap.throws(() => pr.create(new Date(999999, 999999, 999999), new Date(2001, 1, 1
 tap.throws(() => pr.create('abc', '_#@'),
   new Error('Invalid limit values.'));
 
-//Limits same type checking
+// Limits same type checking
 tap.throws(() => pr.create(1, new Date()),
   new Error('Both limit values of a range must have the same type.'));
-tap.throws(() => pr.create("a", 1),
+tap.throws(() => pr.create('a', 1),
   new Error('Both limit values of a range must have the same type.'));
-tap.throws(() => pr.create("a", new Date()),
+tap.throws(() => pr.create('a', new Date()),
   new Error('Both limit values of a range must have the same type.'));
-tap.throws(() => pr.create("1", 2),
+tap.throws(() => pr.create('1', 2),
   new Error('Both limit values of a range must have the same type.'));
 
-//Limits order checking
+// Limits order checking
 tap.throws(() => pr.create(3, 2),
   new Error('The passed limit values must be in the right order.'));
 tap.throws(() => pr.create(new Date(2001, 3, 4), new Date(2001, 3, 3)),
   new Error('The passed limit values must be in the right order.'));
 tap.throws(() => pr.create('C', '2'),
   new Error('The passed limit values must be in the right order.'));
+
+// Date range unit validation
+tap.throws(() => pr.create(new Date(2001, 3, 2), new Date(2001, 3, 3), { unit: 'decade' }),
+  new Error('Invalid unit. Accepted values: "second", "minute", "hour", "day", "week", "month"'));
+
+// Increment value validation
+tap.throws(() => pr.create(new Date(2001, 3, 2), new Date(2001, 3, 3), { increment: -3 }),
+  new Error('The increment value must be a number greater than zero.'));
+tap.throws(() => pr.create(new Date(2001, 3, 2), new Date(2001, 3, 3), { increment: 0 }),
+  new Error('The increment value must be a number greater than zero.'));
+tap.throws(() => pr.create(1, 10, { increment: NaN }),
+  new Error('The increment value must be a number greater than zero.'));
+tap.throws(() => pr.create(1, 10, { increment: Infinity }),
+  new Error('The increment value must be a number greater than zero.'));
+tap.throws(() => pr.create(1, 10, { increment: -Infinity }),
+  new Error('The increment value must be a number greater than zero.'));
