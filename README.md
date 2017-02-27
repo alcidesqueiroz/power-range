@@ -43,13 +43,10 @@ Range.create(-2, 13, { increment: 3 });
 // Date ranges
 Range.create(new Date(2001, 2, 30, 4, 5, 6), new Date(2001, 3, 2, 6, 7, 8));
 /**
- * => [
- *      #{Fri Mar 30 2001 04:05:06 GMT-0300 (BRT)},
- *      #{Sat Mar 31 2001 04:05:06 GMT-0300 (BRT)},
- *      #{Sun Apr 01 2001 04:05:06 GMT-0300 (BRT)},
- *      #{Mon Apr 02 2001 04:05:06 GMT-0300 (BRT)},
- *      #{Tue Apr 03 2001 04:05:06 GMT-0300 (BRT)}
- *    ]
+ * => [ Fri Mar 30 2001 04:05:06 GMT-0300 (BRT),
+ *      Sat Mar 31 2001 04:05:06 GMT-0300 (BRT),
+ *      Sun Apr 01 2001 04:05:06 GMT-0300 (BRT),
+ *      Mon Apr 02 2001 04:05:06 GMT-0300 (BRT) ]
  */
 
 // Options
@@ -58,11 +55,8 @@ Range.create(new Date(2001, 2, 30, 4, 5, 6), new Date(2001, 3, 2, 6, 7, 8));
  */
 Range.create(new Date(2001, 2, 30, 4, 5, 6), new Date(2001, 3, 2, 6, 7, 8), { increment: 2 });
 /**
- * => [
- *      #{Fri Mar 30 2001 04:05:06 GMT-0300 (BRT)},
- *      #{Sun Apr 01 2001 04:05:06 GMT-0300 (BRT)},
- *      #{Tue Apr 03 2001 04:05:06 GMT-0300 (BRT)}
- *    ]
+ * => [ Fri Mar 30 2001 04:05:06 GMT-0300 (BRT),
+ *      Sun Apr 01 2001 04:05:06 GMT-0300 (BRT) ]
  */
 
 /**
@@ -70,13 +64,11 @@ Range.create(new Date(2001, 2, 30, 4, 5, 6), new Date(2001, 3, 2, 6, 7, 8), { in
  */
 Range.create(new Date(2001, 2, 30, 4, 5, 6), new Date(2001, 6, 30, 4, 5, 6), { unit: 'month' });
 /**
- * => [
- *      #{Fri Mar 30 2001 04:05:06 GMT-0300 (BRT)},
- *      #{Mon Apr 30 2001 04:05:06 GMT-0300 (BRT)},
- *      #{Wed May 30 2001 04:05:06 GMT-0300 (BRT)},
- *      #{Sat Jun 30 2001 04:05:06 GMT-0300 (BRT)},
- *      #{Mon Jul 30 2001 04:05:06 GMT-0300 (BRT)}
- *    ]
+ * => [ Fri Mar 30 2001 04:05:06 GMT-0300 (BRT),
+ *      Mon Apr 30 2001 04:05:06 GMT-0300 (BRT),
+ *      Wed May 30 2001 04:05:06 GMT-0300 (BRT),
+ *      Sat Jun 30 2001 04:05:06 GMT-0300 (BRT),
+ *      Mon Jul 30 2001 04:05:06 GMT-0300 (BRT) ]
  */
 
 // String ranges
@@ -136,3 +128,15 @@ Range.create('Z', 'AB', { lowerCaseLetters: true });
 Range.create('$', '%#', { chars: '$%#' });
 //=> ['$', '%', '#', '$$', '$%', '$#', '%$', '%%', '%#']
 ```
+
+## Author
+
+Alcides Queiroz Aguiar
+
+-	E-mail: alcidesqueiroz <at> gmail
+-	Twitter: [@alcidesqueiroz](http://www.twitter.com/alcidesqueiroz)
+-	Stack Overflow: [http://is.gd/aqanso](http://stackoverflow.com/users/1295666/alcides-queiroz-aguiar)
+
+## License
+
+This code is free to use under the terms of the [MIT License](LICENSE.md).
