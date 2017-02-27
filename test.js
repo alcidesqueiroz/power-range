@@ -11,6 +11,10 @@ tap.deepEqual(pr.create(-3, 3), [-3, -2, -1, 0, 1, 2, 3]);
 tap.deepEqual(pr.create(-7, -2), [-7, -6, -5, -4, -3, -2]);
 tap.deepEqual(pr.create(0, 3), [0, 1, 2, 3]);
 
+//Options
+tap.deepEqual(pr.create(1, 6, { increment: 2 }), [1, 3, 5]);
+tap.deepEqual(pr.create(-2, 12, { increment: 3 }), [-2, 1, 4, 7, 10]);
+
 /**
  * Ranges of strings
  */
