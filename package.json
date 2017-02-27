@@ -1,7 +1,7 @@
 {
   "name": "power-range",
   "version": "1.0.0",
-  "description": "Create ranges of almost anything: numbers, letters, dates and even words! Yay!",
+  "description": "A small and powerful library for creating ranges of almost anything: numbers, letters, dates and even words! Yay!",
   "license": "MIT",
   "repository": "alcidesqueiroz/power-range",
   "author": {
