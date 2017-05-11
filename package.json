@@ -1,9 +1,12 @@
 {
   "name": "power-range",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A small and powerful library for creating ranges of almost anything: numbers, letters, dates and even strings! Yay!",
   "license": "MIT",
-  "repository": "alcidesqueiroz/power-range",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/power-range/power-range.git"
+  },
   "author": {
     "name": "Alcides Queiroz",
     "email": "alcidesqueiroz@gmail.com",
