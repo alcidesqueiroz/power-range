@@ -1,4 +1,13 @@
+# general
 .DS_Store
+.eslintcache
+*.log
+
+# Yarn
+yarn-debug.log*
+yarn-error.log*
+.yarn-integrity
+
+# NPM
+npm-debug.log*
 node_modules/
-npm-debug.log
-yarn-error.log
