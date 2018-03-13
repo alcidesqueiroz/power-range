@@ -174,7 +174,7 @@ function dateAdd(date, increment, unit) {
     week: 604800000
   }[unit];
 
-  if(!factor){
+  if (!factor) {
     throw new Error('Invalid unit. Accepted values: "second", "minute", "hour", "day", "week", "month"');
   }
 
