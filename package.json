@@ -6,8 +6,8 @@
   "repository": "alcidesqueiroz/power-range",
   "author": {
     "name": "Alcides Queiroz",
-    "email": "alcidesqueiroz@gmail.com",
-    "url": "alcidesqueiroz.github.com"
+    "email": "alcidesqueiroz <at> gmail",
+    "url": "medium.com/@alcidesqueiroz"
   },
   "engines": {
     "node": ">=4.8.0"
