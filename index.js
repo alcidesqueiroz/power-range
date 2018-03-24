@@ -1,12 +1,9 @@
 'use strict';
 
-const typeDetect = require('type-detect');
-
-// A wrapper for the typeDetect function
-const type = val => typeDetect(val).toLowerCase();
+const whatype = require('whatype');
 
 // Accepted data types for range limit values
-const validTypes = ['number', 'date', 'string'];
+const validTypes = ['numeric', 'date', 'string'];
 
 // Possible chars for string ranges
 const numbers = '0123456789';
@@ -14,17 +11,18 @@ const upperCaseLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const lowerCaseLetters = upperCaseLetters.toLowerCase();
 
 function limitsHaveValidType(from, to) {
-  return [from, to].every(val => validTypes.indexOf(type(val)) > -1);
+  return [from, to].every(val => validTypes.some((type) => whatype.is(val, type)));
 }
 
 function limitsHaveValidValues(from, to, options) {
-  const rangeType = type(from);
+  const fromType = whatype(from);
+  const toType = whatype(to);
   let valid;
 
-  if (rangeType === 'number') {
-    valid = !isNaN(from) && !isNaN(to) &&
-      isFinite(from) && isFinite(to);
-  } else if (rangeType === 'date') {
+  if (whatype.is(from, 'numeric')) {
+    // NaN, Infinity and -Infinity are not valid limit values
+    valid = fromType === toType && fromType === 'number';
+  } else if (toType === 'date') {
     valid = !isNaN(from.getTime()) && !isNaN(to.getTime());
   } else {
     valid = (from + to)
@@ -35,11 +33,13 @@ function limitsHaveValidValues(from, to, options) {
 }
 
 function limitsHaveSameType(from, to) {
-  return type(from) === type(to);
+  if (whatype.is(from, 'numeric')) return whatype.is(to, 'numeric');
+
+  return whatype(from) === whatype(to);
 }
 
 function limitsAreInTheRightOrder(from, to, options) {
-  const rangeType = type(from);
+  const rangeType = whatype(from);
 
   if (rangeType === 'number' || rangeType === 'date') {
     return to >= from;
@@ -201,7 +201,7 @@ function createRangeOfDates(from, to, options) {
 
 module.exports = {
   create(from, to, options) {
-    const rangeType = type(from);
+    const rangeType = whatype(from);
     const opts = Object.assign({}, options);
 
     if (rangeType === 'string') {

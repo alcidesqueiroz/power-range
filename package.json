@@ -10,7 +10,7 @@
     "url": "medium.com/@alcidesqueiroz"
   },
   "engines": {
-    "node": ">=4.8.0"
+    "node": ">=6"
   },
   "scripts": {
     "test": "tap test.js"
@@ -32,6 +32,6 @@
     "tap": "^10.2.1"
   },
   "dependencies": {
-    "type-detect": "^4.0.0"
+    "whatype": "^1.0.0"
   }
 }
