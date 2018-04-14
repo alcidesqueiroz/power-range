@@ -1,5 +1,5 @@
 {
-  "extends": "airbnb",
+  "extends": "airbnb-base",
   "parserOptions": {
     "sourceType": "script"
   },
@@ -10,6 +10,7 @@
     "no-continue": "off",
     "no-mixed-operators": "off",
     "no-multiple-empty-lines": "off",
-    "no-plusplus": "off"
+    "no-plusplus": "off",
+    "prefer-destructuring": "off"
   }
 }

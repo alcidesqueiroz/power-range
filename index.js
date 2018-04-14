@@ -11,7 +11,7 @@ const upperCaseLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const lowerCaseLetters = upperCaseLetters.toLowerCase();
 
 function limitsHaveValidType(from, to) {
-  return [from, to].every(val => validTypes.some((type) => whatype.is(val, type)));
+  return [from, to].every(val => validTypes.some(type => whatype.is(val, type)));
 }
 
 function limitsHaveValidValues(from, to, options) {
@@ -23,7 +23,7 @@ function limitsHaveValidValues(from, to, options) {
     // NaN, Infinity and -Infinity are not valid limit values
     valid = fromType === toType && fromType === 'number';
   } else if (toType === 'date') {
-    valid = !isNaN(from.getTime()) && !isNaN(to.getTime());
+    valid = !Number.isNaN(from.getTime()) && !Number.isNaN(to.getTime());
   } else {
     valid = (from + to)
       .split('').every(char => options.chars.indexOf(char) > -1);
@@ -207,7 +207,7 @@ module.exports = {
     if (rangeType === 'string') {
       opts.chars = opts.chars || getPossibleChars(from, to, opts);
     } else if (opts.increment !== undefined
-      && (!isFinite(opts.increment) || opts.increment <= 0)) {
+      && (!Number.isFinite(opts.increment) || opts.increment <= 0)) {
       throw new Error('The increment value must be a number greater than zero.');
     }
 
