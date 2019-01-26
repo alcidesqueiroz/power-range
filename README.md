@@ -133,10 +133,12 @@ pr.create('$', '%#', { chars: '$%#' });
 
 Alcides Queiroz Aguiar
 
-- Twitter: [alcidesqueiroz](https://twitter.com/alcidesqueiroz)
+- Website: [www.alcidesqueiroz.com](https://www.alcidesqueiroz.com)
 - Medium: [@alcidesqueiroz](https://medium.com/@alcidesqueiroz)
+- Twitter: [alcidesqueiroz](https://twitter.com/alcidesqueiroz)
+- Behance [alcidesqueiroz](https://behance.net/alcidesqueiroz)
 - Stack Overflow: [http://is.gd/aqanso](http://stackoverflow.com/users/1295666/alcides-queiroz-aguiar)
-- E-mail: alcidesqueiroz <at> gmail
+- E-mail: alcidesqueiroz &lt;at&gt; gmail
 
 ## License
 
