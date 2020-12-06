@@ -1,13 +1,13 @@
-# power-range [![Build status](https://travis-ci.org/alcidesqueiroz/power-range.svg?branch=master)](https://travis-ci.org/alcidesqueiroz/power-range)
+# power-range [![Build status](https://travis-ci.com/alcidesqueiroz/power-range.svg?branch=master)](https://travis-ci.com/alcidesqueiroz/power-range)
 
-> A small and powerful library for creating ranges of almost anything: numbers, letters, dates and even strings! Yay!
+> 🏋🏻 A small and powerful library for creating ranges of almost anything: numbers, letters, dates and even strings! Yay!
 
 ![It's morphing time!](https://gist.githubusercontent.com/alcidesqueiroz/c3d6c6edc559194bc37a2c464a21768d/raw/ef5e0b9ddb81de6eba46761a39226d4e242cf3fa/power-range.gif)
 
 ## Install
 
 ```
-$ npm install --save power-range
+$ npm install power-range
 ```
 
 ## Usage

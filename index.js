@@ -11,7 +11,7 @@ const upperCaseLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const lowerCaseLetters = upperCaseLetters.toLowerCase();
 
 function limitsHaveValidType(from, to) {
-  return [from, to].every(val => validTypes.some(type => whatype.is(val, type)));
+  return [from, to].every((val) => validTypes.some((type) => whatype.is(val, type)));
 }
 
 function limitsHaveValidValues(from, to, options) {
@@ -26,7 +26,7 @@ function limitsHaveValidValues(from, to, options) {
     valid = !Number.isNaN(from.getTime()) && !Number.isNaN(to.getTime());
   } else {
     valid = (from + to)
-      .split('').every(char => options.chars.indexOf(char) > -1);
+      .split('').every((char) => options.chars.indexOf(char) > -1);
   }
 
   return valid;
@@ -202,7 +202,7 @@ function createRangeOfDates(from, to, options) {
 module.exports = {
   create(from, to, options) {
     const rangeType = whatype(from);
-    const opts = Object.assign({}, options);
+    const opts = { ...options };
 
     if (rangeType === 'string') {
       opts.chars = opts.chars || getPossibleChars(from, to, opts);
